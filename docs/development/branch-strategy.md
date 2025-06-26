@@ -322,6 +322,195 @@ jobs:
         run: python -m pytest
 ```
 
+## 🚀 推荐的开发工作流
+
+### 1. 日常功能开发流程
+
+#### 标准功能开发
+```bash
+# 步骤1: 创建功能分支
+python scripts/branch_manager.py create feature portfolio-optimization -d "投资组合优化功能"
+
+# 步骤2: 开发功能
+# 编写代码...
+git add .
+git commit -m "feat: 添加投资组合优化算法"
+
+# 步骤3: 定期同步develop分支
+git fetch origin
+git merge origin/develop  # 或使用 git rebase origin/develop
+
+# 步骤4: 推送到远程
+git push origin feature/portfolio-optimization
+
+# 步骤5: 创建Pull Request
+# 在GitHub上创建PR: feature/portfolio-optimization -> develop
+# 填写PR模板，包含功能描述、测试说明等
+
+# 步骤6: 代码审查
+# 等待团队成员审查，根据反馈修改代码
+
+# 步骤7: 合并和清理
+# PR合并后，删除本地和远程分支
+python scripts/branch_manager.py delete feature/portfolio-optimization
+```
+
+#### 功能开发检查清单
+- [ ] 功能需求明确，有详细的设计文档
+- [ ] 创建了合适的分支名称和描述
+- [ ] 编写了完整的单元测试
+- [ ] 代码符合项目编码规范
+- [ ] 更新了相关文档
+- [ ] 通过了所有自动化测试
+- [ ] 进行了代码审查
+- [ ] 测试了与现有功能的兼容性
+
+### 2. 中文增强开发流程
+
+#### 本地化功能开发
+```bash
+# 步骤1: 创建增强分支
+python scripts/branch_manager.py create enhancement tushare-integration -d "集成Tushare A股数据源"
+
+# 步骤2: 开发中文功能
+# 集成中文数据源
+git add tradingagents/data/tushare_source.py
+git commit -m "enhance(data): 添加Tushare数据源适配器"
+
+# 添加中文配置
+git add config/chinese_config.yaml
+git commit -m "enhance(config): 添加中文市场配置"
+
+# 步骤3: 更新中文文档
+git add docs/data/tushare-integration.md
+git commit -m "docs: 添加Tushare集成文档"
+
+# 步骤4: 中文功能测试
+python -m pytest tests/test_tushare_integration.py
+git add tests/test_tushare_integration.py
+git commit -m "test: 添加Tushare集成测试"
+
+# 步骤5: 推送和合并
+git push origin enhancement/tushare-integration
+# 创建PR到develop分支
+```
+
+#### 中文增强检查清单
+- [ ] 功能适配中国金融市场特点
+- [ ] 添加了完整的中文文档
+- [ ] 支持中文金融术语
+- [ ] 兼容现有的国际化功能
+- [ ] 测试了中文数据处理
+- [ ] 更新了配置文件和示例
+
+### 3. 紧急修复流程
+
+#### 生产环境Bug修复
+```bash
+# 步骤1: 从main创建修复分支
+python scripts/branch_manager.py create hotfix api-timeout-fix -d "修复API请求超时问题"
+
+# 步骤2: 快速定位和修复
+# 分析问题根因
+# 实施最小化修复
+git add tradingagents/api/client.py
+git commit -m "fix: 增加API请求超时重试机制"
+
+# 步骤3: 紧急测试
+python -m pytest tests/test_api_client.py -v
+# 手动测试关键路径
+
+# 步骤4: 立即部署到main
+git push origin hotfix/api-timeout-fix
+# 创建PR到main，标记为紧急修复
+
+# 步骤5: 同步到develop
+git checkout develop
+git merge main
+git push origin develop
+```
+
+#### 紧急修复检查清单
+- [ ] 问题影响评估和优先级确认
+- [ ] 实施最小化修复方案
+- [ ] 通过了关键路径测试
+- [ ] 有回滚计划
+- [ ] 同步到所有相关分支
+- [ ] 通知相关团队成员
+
+### 4. 版本发布流程
+
+#### 正式版本发布
+```bash
+# 步骤1: 创建发布分支
+python scripts/branch_manager.py create release v1.1.0-cn -d "v1.1.0中文增强版发布"
+
+# 步骤2: 版本准备
+# 更新版本号
+echo "1.1.0-cn" > VERSION
+git add VERSION
+git commit -m "bump: 版本号更新到v1.1.0-cn"
+
+# 更新变更日志
+git add CHANGELOG.md
+git commit -m "docs: 更新v1.1.0-cn变更日志"
+
+# 最终测试
+python -m pytest tests/ --cov=tradingagents
+python examples/full_test.py
+
+# 步骤3: 合并到main
+git checkout main
+git merge release/v1.1.0-cn
+git tag v1.1.0-cn
+git push origin main --tags
+
+# 步骤4: 回合并到develop
+git checkout develop
+git merge main
+git push origin develop
+
+# 步骤5: 清理发布分支
+python scripts/branch_manager.py delete release/v1.1.0-cn
+```
+
+#### 版本发布检查清单
+- [ ] 所有计划功能已完成并合并
+- [ ] 通过了完整的测试套件
+- [ ] 更新了版本号和变更日志
+- [ ] 创建了版本标签
+- [ ] 准备了发布说明
+- [ ] 通知了用户和社区
+
+### 5. 上游同步集成流程
+
+#### 与原项目保持同步
+```bash
+# 步骤1: 检查上游更新
+python scripts/sync_upstream.py
+
+# 步骤2: 如果有更新，会自动创建同步分支
+# upstream-sync/20240115
+
+# 步骤3: 解决可能的冲突
+# 保护我们的中文文档和增强功能
+# 采用上游的核心代码更新
+
+# 步骤4: 测试同步结果
+python -m pytest tests/
+python examples/basic_example.py
+
+# 步骤5: 合并到主分支
+git checkout main
+git merge upstream-sync/20240115
+git push origin main
+
+# 步骤6: 同步到develop
+git checkout develop
+git merge main
+git push origin develop
+```
+
 ## 📈 最佳实践
 
 ### 开发建议
@@ -340,4 +529,12 @@ jobs:
 4. **分支清理** - 及时删除已合并分支
 5. **版本标记** - 重要节点创建版本标签
 
-通过这套完整的分支管理策略，我们可以确保项目开发的有序进行，同时保持代码质量和发布稳定性。
+### 质量保证
+
+1. **自动化测试** - 每个PR都要通过CI测试
+2. **代码覆盖率** - 保持80%以上的测试覆盖率
+3. **性能测试** - 重要功能要进行性能测试
+4. **安全扫描** - 定期进行安全漏洞扫描
+5. **文档更新** - 功能变更同步更新文档
+
+通过这套完整的分支管理策略和开发工作流，我们可以确保项目开发的有序进行，同时保持代码质量和发布稳定性。
