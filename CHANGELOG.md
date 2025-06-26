@@ -159,7 +159,7 @@
 
 - **GitHub Issues**: [提交问题和建议](https://github.com/hsliuping/TradingAgents-CN/issues)
 - **GitHub Discussions**: [参与讨论](https://github.com/hsliuping/TradingAgents-CN/discussions)
-- **邮箱**: hsliuping@example.com
+- **邮箱**: hsliup@163.com
 
 ## 许可证
 

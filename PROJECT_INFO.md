@@ -206,12 +206,12 @@
 
 ### 项目联系
 - **GitHub**: https://github.com/hsliuping/TradingAgents-CN
-- **邮箱**: hsliuping@example.com
+- **邮箱**: hsliup@163.com
 - **Issues**: https://github.com/hsliuping/TradingAgents-CN/issues
 
 ### 商务合作
-- **合作邮箱**: business@example.com
-- **技术咨询**: tech@example.com
+- **合作邮箱**: hsliup@163.com
+- **技术咨询**: hsliup@163.com
 
 ## 📄 法律声明
 

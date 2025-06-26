@@ -311,7 +311,7 @@ class TestBaseAnalyst:
 
 - **GitHub Issues**: [提交问题](https://github.com/hsliuping/TradingAgents-CN/issues)
 - **GitHub Discussions**: [参与讨论](https://github.com/hsliuping/TradingAgents-CN/discussions)
-- **邮箱**: hsliuping@example.com
+- **邮箱**: hsliup@163.com
 
 ## 🙏 感谢
 

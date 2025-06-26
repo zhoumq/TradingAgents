@@ -10,10 +10,13 @@
 ## 🎯 项目目标
 
 ### 原始项目简介
+
 [TradingAgents](https://github.com/TauricResearch/TradingAgents) 是由 Tauric Research 开发的创新性多智能体交易框架，模拟真实交易公司的协作决策流程，通过多个专业化AI智能体的协作来评估市场条件并做出交易决策。
 
 ### 我们的增强目标
+
 本项目旨在为中文用户提供：
+
 - 📚 **完整的中文文档体系** - 详细的架构说明、使用指南和最佳实践
 - 🇨🇳 **中国市场适配** - 支持A股、港股等中国金融市场
 - 🧠 **国产LLM集成** - 集成文心一言、通义千问等国产大模型
@@ -23,6 +26,7 @@
 ## ✨ 核心特性
 
 ### 🤖 多智能体协作架构
+
 - **分析师团队**: 基本面、技术面、新闻面、社交媒体四大专业分析师
 - **研究员团队**: 看涨/看跌研究员进行结构化辩论
 - **交易员智能体**: 基于所有输入做出最终交易决策
@@ -30,18 +34,21 @@
 - **管理层**: 协调各团队工作，确保决策质量
 
 ### 🧠 多LLM模型支持
+
 - **OpenAI**: GPT-4o, GPT-4o-mini, GPT-3.5-turbo
 - **Anthropic**: Claude-3-Opus, Claude-3-Sonnet, Claude-3-Haiku
 - **Google AI**: Gemini-Pro, Gemini-2.0-Flash
 - **国产模型** (计划中): 文心一言、通义千问、智谱清言等
 
 ### 📊 全面数据集成
+
 - **实时数据**: FinnHub、Yahoo Finance
 - **新闻数据**: Google News、财经新闻
 - **社交数据**: Reddit、Twitter情绪分析
 - **中文数据** (计划中): Tushare、AkShare、东方财富
 
 ### 🚀 高性能特性
+
 - **并行处理**: 多智能体并行分析，提高效率
 - **智能缓存**: 多层缓存策略，减少API调用成本
 - **实时分析**: 支持实时市场数据分析
@@ -50,16 +57,19 @@
 ## 🆚 与原版的主要区别
 
 ### ✅ 已完成的增强
-| 功能 | 原版 | 中文增强版 |
-|------|------|------------|
-| 文档语言 | 英文 | 完整中文文档体系 |
-| 架构说明 | 基础说明 | 详细的架构设计文档 |
+
+
+| 功能     | 原版     | 中文增强版             |
+| -------- | -------- | ---------------------- |
+| 文档语言 | 英文     | 完整中文文档体系       |
+| 架构说明 | 基础说明 | 详细的架构设计文档     |
 | 使用指南 | 简单示例 | 从入门到高级的完整指南 |
-| 配置说明 | 基础配置 | 详细的配置优化指南 |
-| 故障排除 | 无 | 完整的FAQ和故障排除 |
-| 代码注释 | 英文 | 中文注释和说明 |
+| 配置说明 | 基础配置 | 详细的配置优化指南     |
+| 故障排除 | 无       | 完整的FAQ和故障排除    |
+| 代码注释 | 英文     | 中文注释和说明         |
 
 ### 🔄 计划中的增强
+
 - **中国市场支持**: A股、港股、新三板数据集成
 - **中文数据源**: Tushare、AkShare、Wind等数据源
 - **国产LLM**: 文心一言、通义千问、智谱清言等
@@ -70,6 +80,7 @@
 ## 🚀 快速开始
 
 ### 环境要求
+
 - Python 3.10+ (推荐 3.11)
 - 4GB+ RAM (推荐 8GB+)
 - 稳定的网络连接
@@ -133,17 +144,20 @@ python -m cli.main
 我们提供了详细的中文文档，涵盖从入门到高级的所有内容：
 
 ### 📖 概览文档
+
 - [📋 项目概述](docs/overview/project-overview.md) - 详细的项目背景和特性介绍
 - [🚀 快速开始](docs/overview/quick-start.md) - 从安装到第一次运行的完整指南
 - [⚙️ 详细安装](docs/overview/installation.md) - 各平台详细安装说明
 
 ### 🏗️ 架构文档
+
 - [🏛️ 系统架构](docs/architecture/system-architecture.md) - 完整的系统架构设计
 - [🤖 智能体架构](docs/architecture/agent-architecture.md) - 智能体设计模式和协作机制
 - [📊 数据流架构](docs/architecture/data-flow-architecture.md) - 数据获取、处理和分发流程
 - [🔄 图结构设计](docs/architecture/graph-structure.md) - LangGraph工作流程设计
 
 ### 🤖 智能体文档
+
 - [📈 分析师团队](docs/agents/analysts.md) - 四类专业分析师详解
 - [🔬 研究员团队](docs/agents/researchers.md) - 看涨/看跌研究员和辩论机制
 - [💼 交易员智能体](docs/agents/trader.md) - 交易决策制定流程
@@ -151,29 +165,35 @@ python -m cli.main
 - [👔 管理层智能体](docs/agents/managers.md) - 协调和决策管理
 
 ### 📊 数据处理
+
 - [🔌 数据源集成](docs/data/data-sources.md) - 支持的数据源和API集成
 - [⚙️ 数据处理流程](docs/data/data-processing.md) - 数据清洗、转换和验证
 - [💾 缓存策略](docs/data/caching.md) - 多层缓存优化性能
 
 ### ⚙️ 配置与部署
+
 - [📝 配置指南](docs/configuration/config-guide.md) - 详细的配置选项说明
 - [🧠 LLM配置](docs/configuration/llm-config.md) - 大语言模型配置优化
 
 ### 💡 示例和教程
+
 - [📚 基础示例](docs/examples/basic-examples.md) - 8个实用的基础示例
 - [🚀 高级示例](docs/examples/advanced-examples.md) - 复杂场景和扩展开发
 
 ### ❓ 帮助文档
+
 - [🆘 常见问题](docs/faq/faq.md) - 详细的FAQ和解决方案
 
 ## 💰 成本控制
 
 ### 典型使用成本
+
 - **经济模式**: $0.01-0.05/次分析 (使用 gpt-4o-mini)
 - **标准模式**: $0.05-0.15/次分析 (使用 gpt-4o)
 - **高精度模式**: $0.10-0.30/次分析 (使用 gpt-4o + 多轮辩论)
 
 ### 成本优化建议
+
 ```python
 # 低成本配置示例
 cost_optimized_config = {
@@ -189,6 +209,7 @@ cost_optimized_config = {
 我们欢迎各种形式的贡献：
 
 ### 贡献类型
+
 - 🐛 **Bug修复** - 发现并修复问题
 - ✨ **新功能** - 添加新的功能特性
 - 📚 **文档改进** - 完善文档和教程
@@ -196,6 +217,7 @@ cost_optimized_config = {
 - 🎨 **代码优化** - 性能优化和代码重构
 
 ### 贡献流程
+
 1. Fork 本仓库
 2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
 3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
@@ -207,6 +229,7 @@ cost_optimized_config = {
 本项目基于 Apache 2.0 许可证开源。详见 [LICENSE](LICENSE) 文件。
 
 ### 许可证说明
+
 - ✅ 商业使用
 - ✅ 修改和分发
 - ✅ 私人使用
@@ -217,15 +240,17 @@ cost_optimized_config = {
 ## 🙏 致谢
 
 ### 原始项目
+
 感谢 [Tauric Research](https://github.com/TauricResearch) 团队开发的优秀 TradingAgents 框架，为金融AI领域做出的重要贡献。
 
 ### 开源社区
+
 感谢所有为本项目贡献代码、文档和建议的开发者和用户。
 
 ## 📞 联系方式
 
 - **GitHub Issues**: [提交问题和建议](https://github.com/hsliuping/TradingAgents-CN/issues)
-- **邮箱**: hsliuping@example.com
+- **邮箱**: hsliup@163.com
 - **原项目**: [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)
 
 ## ⚠️ 风险提示
