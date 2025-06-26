@@ -152,6 +152,11 @@ def select_shallow_thinking_agent(provider) -> str:
         "ollama": [
             ("llama3.1 local", "llama3.1"),
             ("llama3.2 local", "llama3.2"),
+        ],
+        "阿里百炼 (dashscope)": [
+            ("通义千问 Turbo - 快速响应，适合日常对话", "qwen-turbo"),
+            ("通义千问 Plus - 平衡性能和成本", "qwen-plus"),
+            ("通义千问 Max - 最强性能", "qwen-max"),
         ]
     }
 
@@ -214,6 +219,12 @@ def select_deep_thinking_agent(provider) -> str:
         "ollama": [
             ("llama3.1 local", "llama3.1"),
             ("qwen3", "qwen3"),
+        ],
+        "阿里百炼 (dashscope)": [
+            ("通义千问 Turbo - 快速响应，适合日常对话", "qwen-turbo"),
+            ("通义千问 Plus - 平衡性能和成本", "qwen-plus"),
+            ("通义千问 Max - 最强性能", "qwen-max"),
+            ("通义千问 Max 长文本版 - 支持超长上下文", "qwen-max-longcontext"),
         ]
     }
     
@@ -241,13 +252,14 @@ def select_deep_thinking_agent(provider) -> str:
 
 def select_llm_provider() -> tuple[str, str]:
     """Select the OpenAI api url using interactive selection."""
-    # Define OpenAI api options with their corresponding endpoints
+    # Define LLM provider options with their corresponding endpoints
     BASE_URLS = [
         ("OpenAI", "https://api.openai.com/v1"),
         ("Anthropic", "https://api.anthropic.com/"),
         ("Google", "https://generativelanguage.googleapis.com/v1"),
+        ("阿里百炼 (DashScope)", "https://dashscope.aliyuncs.com/api/v1"),
         ("Openrouter", "https://openrouter.ai/api/v1"),
-        ("Ollama", "http://localhost:11434/v1"),        
+        ("Ollama", "http://localhost:11434/v1"),
     ]
     
     choice = questionary.select(
