@@ -38,7 +38,8 @@
 - **OpenAI**: GPT-4o, GPT-4o-mini, GPT-3.5-turbo
 - **Anthropic**: Claude-3-Opus, Claude-3-Sonnet, Claude-3-Haiku
 - **Google AI**: Gemini-Pro, Gemini-2.0-Flash
-- **国产模型** (计划中): 文心一言、通义千问、DeepSeek等
+- **🇨🇳 阿里百炼**: 通义千问 Turbo/Plus/Max (已支持)
+- **国产模型** (计划中): 文心一言、DeepSeek等
 
 ### 📊 全面数据集成
 
@@ -103,24 +104,41 @@ pip install -r requirements.txt
 
 ### 配置API密钥
 
+#### 🇨🇳 推荐：使用阿里百炼（国产大模型）
 ```bash
-# 设置环境变量
-export OPENAI_API_KEY="your_openai_api_key"
-export FINNHUB_API_KEY="your_finnhub_api_key"
+# 设置阿里百炼API密钥
+set DASHSCOPE_API_KEY=your_dashscope_api_key
+set FINNHUB_API_KEY=your_finnhub_api_key
 
 # 或创建 .env 文件
-echo "OPENAI_API_KEY=your_openai_api_key" > .env
+echo "DASHSCOPE_API_KEY=your_dashscope_api_key" > .env
 echo "FINNHUB_API_KEY=your_finnhub_api_key" >> .env
+```
+
+#### 使用国外模型
+```bash
+# OpenAI
+set OPENAI_API_KEY=your_openai_api_key
+set FINNHUB_API_KEY=your_finnhub_api_key
+
+# 或其他模型...
 ```
 
 ### 基本使用
 
+#### 🇨🇳 使用阿里百炼大模型（推荐）
 ```python
 from tradingagents.graph.trading_graph import TradingAgentsGraph
 from tradingagents.default_config import DEFAULT_CONFIG
 
+# 配置阿里百炼
+config = DEFAULT_CONFIG.copy()
+config["llm_provider"] = "dashscope"
+config["deep_think_llm"] = "qwen-plus"      # 深度分析
+config["quick_think_llm"] = "qwen-turbo"    # 快速任务
+
 # 创建交易智能体
-ta = TradingAgentsGraph(debug=True, config=DEFAULT_CONFIG.copy())
+ta = TradingAgentsGraph(debug=True, config=config)
 
 # 分析股票 (以苹果公司为例)
 state, decision = ta.propagate("AAPL", "2024-01-15")
@@ -130,6 +148,15 @@ print(f"推荐动作: {decision['action']}")
 print(f"置信度: {decision['confidence']:.1%}")
 print(f"风险评分: {decision['risk_score']:.1%}")
 print(f"推理过程: {decision['reasoning']}")
+```
+
+#### 快速启动脚本
+```bash
+# 阿里百炼演示
+python demo_dashscope.py
+
+# OpenAI演示（需要国外API）
+python demo_openai.py
 ```
 
 ### 交互式分析
