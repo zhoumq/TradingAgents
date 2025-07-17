@@ -218,6 +218,11 @@ class ConfigManager:
                 "enable_cost_tracking": True,
                 "cost_alert_threshold": 100.0,  # 成本警告阈值
                 "currency_preference": "CNY",
+                "language_preference": "zh-CN",  # 语言偏好设置
+                "locale": "zh-CN",              # 区域设置
+                "timezone": "Asia/Shanghai",     # 时区设置
+                "date_format": "YYYY-MM-DD",     # 日期格式
+                "time_format": "HH:mm:ss",       # 时间格式
                 "auto_save_usage": True,
                 "max_usage_records": 10000,
                 "data_dir": default_data_dir,  # 数据目录配置

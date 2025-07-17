@@ -19,6 +19,12 @@ DEFAULT_CONFIG = {
     "max_recur_limit": 100,
     # Tool settings
     "online_tools": True,
+    # Language and localization settings
+    "language": "zh-CN",
+    "locale": "zh-CN", 
+    "timezone": "Asia/Shanghai",
+    "date_format": "YYYY-MM-DD",
+    "time_format": "HH:mm:ss",
 
     # Note: Database and cache configuration is now managed by .env file and config.database_manager
     # No database/cache settings in default config to avoid configuration conflicts
